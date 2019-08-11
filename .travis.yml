@@ -1,6 +1,10 @@
 dist: xenial
 language: java
+script:
+  - ./gradlew clean
+  - ./gradlew assemble
 jdk: 
+  - openjdk8
   - oraclejdk11
   - oraclejdk8
   - openjdk10
