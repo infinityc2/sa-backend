@@ -1,7 +1,6 @@
 package com.sa.system;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.Set;
 
@@ -11,7 +10,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import com.sa.system.entity.Brand;
+import com.sa.system.entity.Customer;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class BrandJunitTest {
+public class CustomerJunitTest {
 
     @Autowired private TestEntityManager entityManager;
     private Validator validator;
@@ -35,20 +34,19 @@ public class BrandJunitTest {
     }
 
     @Test
-    public void brandNotNull() {
-        Brand brand = new Brand();
-        brand.setName("ASUS");
+    public void customerNotNull() {
+        Customer customer = new Customer();
+        customer.setUsername("customer1");
+        customer.setPassword("password1");
 
         try {
-            entityManager.persist(brand);
+            entityManager.persist(customer);
             entityManager.flush();
-        } catch (ConstraintViolationException e) {
+        } catch(ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-            System.out.println("\n\n\n brandNotNull\n" + violations);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("\n\n\n customerNotNull\n" + violations);
         }
     }
 }
