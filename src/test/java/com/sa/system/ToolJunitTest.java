@@ -1,7 +1,6 @@
 package com.sa.system;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.Set;
 
@@ -11,7 +10,8 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import com.sa.system.entity.Brand;
+import com.sa.system.entity.Tool;
+import com.sa.system.entity.ToolType;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,10 +23,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class BrandJunitTest {
+public class ToolJunitTest {
 
     @Autowired private TestEntityManager entityManager;
-    private Validator validator;
+    private Validator  validator;
 
     @Before
     public void setup() {
@@ -35,20 +35,25 @@ public class BrandJunitTest {
     }
 
     @Test
-    public void brandNotNull() {
-        Brand brand = new Brand();
-        brand.setName("ASUS");
+    public void ToolNotNull() {
+        ToolType toolType = new ToolType();
+        toolType.setType("Network");
+        entityManager.persist(toolType);
+        entityManager.flush();
+
+        Tool tool = new Tool();
+        tool.setName("P2P");
+        tool.setType(toolType);
+        tool.setPrice(500L);
 
         try {
-            entityManager.persist(brand);
+            entityManager.persist(tool);
             entityManager.flush();
         } catch (ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations =e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations, false);
             assertEquals(violations.size(), 1);
-            System.out.println("\n\n\n brandNotNull\n" + violations);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("\n\n\n toolNotNull\n" + violations);
         }
     }
 }
