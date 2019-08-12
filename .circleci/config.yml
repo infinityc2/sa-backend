@@ -12,10 +12,10 @@ jobs:
       - run: gradle clean
       - run: gradle assemble
       - run: gradle test
-      - save_cache:
-          paths:
-            - ~/.gradle
-            key: gradle-{{ checksum "build.gradle" }}
+      # - save_cache:
+      #     paths:
+      #       - ~/.gradle
+      #       key: gradle-{{ checksum "build.gradle" }}
 
       - store_artifacts:
           path: build/distributions
