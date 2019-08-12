@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class ToolType {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tool_type_seq")
     private Long id;
+    @NotNull
     private String type;
     
 }

@@ -24,7 +24,7 @@ public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brand_seq")
     private Long id;
-    @NotNull
+    @NotNull(message = "brand name must be not null")
     private String name;
     
 }

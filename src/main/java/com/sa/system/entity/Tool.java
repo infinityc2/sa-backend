@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.Getter;
@@ -31,8 +32,9 @@ public class Tool {
     private Long id;
     private String name;
 
-    @ManyToOne
+    @ManyToOne @NotNull(message = "type must be not null")
     private ToolType type;
+    @NotNull
     private Long price;
 
     @ManyToMany
