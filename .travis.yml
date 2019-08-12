@@ -3,6 +3,7 @@ language: java
 script:
   - ./gradlew clean
   - ./gradlew assemble
+  - ./gradlew test
 jdk: 
   - openjdk8
   - oraclejdk11
