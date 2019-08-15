@@ -1,14 +1,10 @@
 dist: xenial
 language: java
 script:
-  - ./gradlew clean
   - ./gradlew assemble
   - ./gradlew test
 jdk: 
   - openjdk8
-  - oraclejdk11
-  - openjdk10
-  - openjdk11
 before_install:
   - chmod +x gradlew
   - ./gradlew clean

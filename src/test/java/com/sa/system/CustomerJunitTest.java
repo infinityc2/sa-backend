@@ -36,7 +36,7 @@ public class CustomerJunitTest {
     @Test
     public void customerNotNull() {
         Customer customer = new Customer();
-        customer.setUsername("customer1");
+        customer.setEmail("customer1@gmail.com");
         customer.setPassword("password1");
 
         try {
