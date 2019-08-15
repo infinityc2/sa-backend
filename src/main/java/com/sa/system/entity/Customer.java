@@ -33,4 +33,7 @@ public class Customer {
     @Size(min = 8)
     @NotNull
     private String password;
+
+    @NotNull
+    private String phone;
 }

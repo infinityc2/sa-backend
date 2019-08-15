@@ -38,6 +38,7 @@ public class CustomerJunitTest {
         Customer customer = new Customer();
         customer.setEmail("customer1@gmail.com");
         customer.setPassword("password1");
+        customer.setPhone("0984458956");
 
         try {
             entityManager.persist(customer);
