@@ -1,5 +1,6 @@
 package com.sa.system.entity;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
@@ -53,11 +56,14 @@ public class Invoice {
     private Date sentDate;
     private Date receiveDate;
 
-    @ManyToMany(mappedBy = "invoice")
+    @ManyToMany
+    @JoinTable(name = "tool_invoice",
+        joinColumns = @JoinColumn(name = "invoice_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "tool_id", referencedColumnName = "id"))
     @JsonBackReference
-    private Set<Tool> tool;
+    private Collection<Tool> tool;
 
-    @NotNull 
+    @NotNull
     @Email
     private String email;
 

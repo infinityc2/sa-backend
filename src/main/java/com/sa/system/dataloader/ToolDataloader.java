@@ -114,6 +114,7 @@ public class ToolDataloader implements ApplicationRunner {
         hardware7.setPrice(1000L);
         toolRepository.save(hardware7);
 
+        toolTypeRepository.findAll().forEach(System.out::println);
 	}
 
     

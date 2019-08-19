@@ -13,8 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BrandDataloader implements ApplicationRunner {
     
-    @Autowired
-    private BrandRepository brandRepository;
+    @Autowired private BrandRepository brandRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -23,6 +22,7 @@ public class BrandDataloader implements ApplicationRunner {
             brand.setName(item);
             brandRepository.save(brand);
         });
+        brandRepository.findAll().forEach(System.out::println);
 	}
 
     

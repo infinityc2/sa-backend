@@ -22,6 +22,7 @@ public class ComputerTypeDataloader implements ApplicationRunner {
             computerType.setType(type);
             computerTypeRepository.save(computerType);
         });
+        computerTypeRepository.findAll().forEach(System.out::println);
 	}
 
     
