@@ -49,9 +49,9 @@ public class Invoice {
     @NotNull
     @Size(min = 10)
     private String dianose;
-    private Date curDate;
+    private Date invoiceDate;
     private Date sentDate;
-    private Date recDate;
+    private Date receiveDate;
 
     @ManyToMany(mappedBy = "invoice")
     @JsonBackReference
