@@ -67,7 +67,7 @@ public class InvoiceController {
         newInvoice.setType(computerType.get());
         newInvoice.setPhone(body.get("phone").toString());
         newInvoice.setInvoiceDate(new Date());
-        newInvoice.setDianose(body.get("dianose").toString());
+        newInvoice.setSymptom(body.get("symptom").toString());
 
         try {
             Set<Tool> tools = new HashSet<Tool>();
@@ -117,7 +117,7 @@ public class InvoiceController {
         newInvoice.setType(computerType.get());
         newInvoice.setPhone(body.get("phone").toString());
         newInvoice.setInvoiceDate(new Date());
-        newInvoice.setDianose(body.get("dianose").toString());
+        newInvoice.setSymptom(body.get("symptom").toString());
 
         try {
             Customer email = customerRepository.findByEmail(body.get("customer").toString());

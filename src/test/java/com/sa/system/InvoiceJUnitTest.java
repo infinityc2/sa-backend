@@ -59,7 +59,7 @@ public class InvoiceJUnitTest {
         computerType.setType("Super Computer");
         entityManager.persist(brand);
         entityManager.persist(computerType);
-        invoice.setDianose("blue screen windows");
+        invoice.setSymptom("blue screen windows");
         invoice.setBrand(brand);
         invoice.setType(computerType);
         invoice.setEmail("customer1@gmail.com");
@@ -72,7 +72,6 @@ public class InvoiceJUnitTest {
         customer.setPassword("123456789");
         customer.setPhone("0977854163");
         entityManager.persist(customer);
-
         invoice.setCustomer(customer);
 
 

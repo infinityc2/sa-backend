@@ -43,8 +43,5 @@ public class Tool {
 
     @ManyToMany(mappedBy = "tool")
     @JsonBackReference
-    // @JoinTable(name = "tool_invoice",
-    //     joinColumns = @JoinColumn(name = "tool_id", referencedColumnName = "id"),
-    //     inverseJoinColumns = @JoinColumn(name = "invoice_id", referencedColumnName = "id"))
     private Collection<Invoice> invoice;
 }

@@ -2,7 +2,6 @@ package com.sa.system.entity;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,7 +50,7 @@ public class Invoice {
 
     @NotNull
     @Size(min = 10)
-    private String dianose;
+    private String symptom;
     private Date invoiceDate;
     private Date sentDate;
     private Date receiveDate;
