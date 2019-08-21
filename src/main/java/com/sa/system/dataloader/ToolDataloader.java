@@ -97,7 +97,7 @@ public class ToolDataloader implements ApplicationRunner {
         toolRepository.save(hardware4);
 
         Tool hardware5 = new Tool();
-        hardware5.setName("Hear Sink");
+        hardware5.setName("Heat Sink");
         hardware5.setType(hardware.get());
         hardware5.setPrice(1500L);
         toolRepository.save(hardware5);

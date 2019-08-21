@@ -53,7 +53,6 @@ public class Invoice {
     private String symptom;
     private Date invoiceDate;
     private Date sentDate;
-    private Date receiveDate;
 
     @ManyToMany
     @JoinTable(name = "tool_invoice",

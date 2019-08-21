@@ -24,6 +24,7 @@ import com.sa.system.repository.InvoiceRepository;
 import com.sa.system.repository.ToolRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/invoice")
+@CrossOrigin(origins = "*")
 public class InvoiceController {
 
     @Autowired private InvoiceRepository invoiceRepository;

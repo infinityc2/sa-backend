@@ -8,12 +8,14 @@ import com.sa.system.repository.ToolRepository;
 import com.sa.system.repository.ToolTypeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/tool")
+@CrossOrigin(origins = "*")
 public class ToolController {
 
     @Autowired private ToolRepository toolRepository;
