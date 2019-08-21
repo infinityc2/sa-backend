@@ -19,11 +19,13 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'jacoco'
 apply plugin: 'org.springframework.boot'
 
 group = 'com.sa'
 version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
+targetCompatibility = 1.8
 
 configurations {
 	compileOnly {
@@ -44,3 +46,12 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
