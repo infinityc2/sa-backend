@@ -8,8 +8,12 @@ jdk:
 before_install:
   - chmod +x gradlew
   - ./gradlew clean
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-env:
-  global:
-    - CODECOV_TOKEN="616025f3-0e0e-4729-9f5e-2f56899b8935"
+# after_success:
+#   - bash <(curl -s https://codecov.io/bash)
+# env:
+#   global:
+#     - CODECOV_TOKEN="616025f3-0e0e-4729-9f5e-2f56899b8935"
+
+deploy:
+  provider: heroku
+  api_key: afd9b745-ff0f-4485-8f45-1542f03a134c
