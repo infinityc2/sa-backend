@@ -17,3 +17,4 @@ before_install:
 deploy:
   provider: heroku
   api_key: afd9b745-ff0f-4485-8f45-1542f03a134c
+  app: repair-invoice-system-api
