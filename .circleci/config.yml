@@ -40,8 +40,8 @@ workflows:
     jobs:
       - build
       - deploy
-        requires:
-          - build
-        filter:
-          branches:
-            only: sequential-branch-filter
+          requires:
+            - build
+          filter:
+            branches:
+              only: sequential-branch-filter
