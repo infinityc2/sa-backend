@@ -38,21 +38,19 @@ public class Invoice {
     private Long id;
 
     @ManyToOne
-    @NotNull
-    private Brand brand;
+    private @NotNull Brand brand;
 
     @ManyToOne
-    @NotNull
-    private ComputerType type;
+    private @NotNull ComputerType type;
 
     @ManyToOne
     private Customer customer;
 
-    @NotNull
+    
     @Size(min = 10)
-    private String symptom;
-    private Date invoiceDate;
-    private Date sentDate;
+    private @NotNull String symptom;
+    private @NotNull Date invoiceDate;
+    private @NotNull Date sentDate;
 
     @ManyToMany
     @JoinTable(name = "tool_invoice",
@@ -60,12 +58,10 @@ public class Invoice {
         inverseJoinColumns = @JoinColumn(name = "tool_id", referencedColumnName = "id"))
     @JsonBackReference
     private Collection<Tool> tool;
-
-    @NotNull
+   
     @Email
-    private String email;
+    private @NotNull String email;
 
-    @NotNull 
     @Pattern(regexp = "^[0-9]*$")
-    private String phone;
+    private @NotNull String phone;
 }

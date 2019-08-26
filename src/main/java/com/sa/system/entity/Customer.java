@@ -27,13 +27,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
     private Long id;
 
-    @NotNull @Email
-    private String email;
+    @Email
+    private @NotNull String email;
     
     @Size(min = 8)
-    @NotNull
-    private String password;
+    private @NotNull String password;
 
-    @NotNull
-    private String phone;
+    private @NotNull String phone;
 }

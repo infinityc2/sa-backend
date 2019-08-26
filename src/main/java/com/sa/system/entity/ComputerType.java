@@ -24,6 +24,6 @@ public class ComputerType {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "computer_type_seq")
     private Long id;
-    @NotNull
-    private String type;
+    
+    private @NotNull String type;
 }

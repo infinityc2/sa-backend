@@ -44,4 +44,4 @@ jobs:
 #             - build
 #           filter:
 #             branches:
-#               only: sequential-branch-filter
+#               only: sequential-branch-filter | master
