@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/invoice")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = {"http://localhost:8080"})
 public class InvoiceController {
 
     @Autowired private InvoiceRepository invoiceRepository;
@@ -85,8 +85,7 @@ public class InvoiceController {
         }
 
         try {
-            Customer email = customerRepository.findByEmail(body.get("customer").toString());
-            Optional<Customer> customer = customerRepository.findById(email.getId());
+            Optional<Customer> customer = customerRepository.findById(Long.valueOf(body.get("customer").toString()));
             newInvoice.setCustomer(customer.get());
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
@@ -122,8 +121,7 @@ public class InvoiceController {
         newInvoice.setSymptom(body.get("symptom").toString());
 
         try {
-            Customer email = customerRepository.findByEmail(body.get("customer").toString());
-            Optional<Customer> customer = customerRepository.findById(email.getId());
+            Optional<Customer> customer = customerRepository.findById(Long.valueOf(body.get("customer").toString()));
             newInvoice.setCustomer(customer.get());
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());

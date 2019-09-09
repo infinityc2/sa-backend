@@ -58,7 +58,11 @@ public class Invoice {
         inverseJoinColumns = @JoinColumn(name = "tool_id", referencedColumnName = "id"))
     @JsonBackReference
     private Collection<Tool> tool;
-   
+
+    // regular expression
+    // [A-Za-z0-9._]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
+    // ^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$
+    // @Pattern(regexp = "[A-Za-z0-9._]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
     @Email
     private @NotNull String email;
 

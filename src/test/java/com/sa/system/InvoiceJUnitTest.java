@@ -15,6 +15,8 @@ import javax.validation.ValidatorFactory;
 import com.sa.system.entity.Brand;
 import com.sa.system.entity.ComputerType;
 import com.sa.system.entity.Customer;
+import com.sa.system.entity.CustomerType;
+import com.sa.system.entity.Gender;
 import com.sa.system.entity.Invoice;
 import com.sa.system.entity.Tool;
 import com.sa.system.repository.BrandRepository;
@@ -68,12 +70,23 @@ public class InvoiceJUnitTest {
         invoice.setInvoiceDate(new Date());
 
         Customer customer = new Customer();
+        Gender gender = new Gender();
+        gender.setGender("เกย์");
+        entityManager.persist(gender);
+
+        CustomerType customerType = new CustomerType();
+        customerType.setType("VIP");
+        entityManager.persist(customerType);
+
+        customer.setGender(gender);
+        customer.setCustomerType(customerType);
         customer.setEmail("customer1@gmail.com");
+        customer.setFirstName("John");
+        customer.setLastName("Doe");
         customer.setPassword("123456789");
         customer.setPhone("0977854163");
         entityManager.persist(customer);
         invoice.setCustomer(customer);
-
 
         try {
             entityManager.persist(invoice);
