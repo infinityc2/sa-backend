@@ -41,5 +41,5 @@ public class Repairman {
     private ITTechnician itTechnician;
 
     @ManyToOne
-    private Expertise expertise;
+    private Position expertise;
 }

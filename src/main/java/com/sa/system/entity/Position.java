@@ -17,11 +17,11 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @SequenceGenerator(name = "expertise_seq", initialValue = 1)
-public class Expertise {
+public class Position {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expertise_seq")
     private Long id;
 
-    private @NotNull String expert;
+    private @NotNull String position;
 }
