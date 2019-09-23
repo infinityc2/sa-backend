@@ -17,12 +17,12 @@ import com.sa.system.entity.ComputerType;
 import com.sa.system.entity.Customer;
 import com.sa.system.entity.CustomerType;
 import com.sa.system.entity.Gender;
-import com.sa.system.entity.Invoice;
+import com.sa.system.entity.Request;
 import com.sa.system.entity.Tool;
 import com.sa.system.repository.BrandRepository;
 import com.sa.system.repository.ComputerTypeRepository;
 import com.sa.system.repository.CustomerRepository;
-import com.sa.system.repository.InvoiceRepository;
+import com.sa.system.repository.RequestRepository;
 import com.sa.system.repository.ToolRepository;
 
 import org.junit.Before;
@@ -35,12 +35,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class InvoiceJUnitTest {
+public class RequestJUnitTest {
 
     @Autowired private CustomerRepository customerRepository;
     @Autowired private BrandRepository brandRepository;
     @Autowired private ToolRepository toolRepository;
-    @Autowired private InvoiceRepository invoiceRepository;
+    @Autowired private RequestRepository requestRepository;
     @Autowired private ComputerTypeRepository computerTypeRepository;
 
     @Autowired private TestEntityManager entityManager;
@@ -53,21 +53,21 @@ public class InvoiceJUnitTest {
     }
 
     @Test
-    public void addInvoice() {
-        Invoice invoice = new Invoice();
+    public void addRequest() {
+        Request request = new Request();
         Brand brand = new Brand();
         ComputerType computerType = new ComputerType();
         brand.setName("IBM");
         computerType.setType("Super Computer");
         entityManager.persist(brand);
         entityManager.persist(computerType);
-        invoice.setSymptom("blue screen windows");
-        invoice.setBrand(brand);
-        invoice.setType(computerType);
-        invoice.setEmail("customer1@gmail.com");
-        invoice.setPhone("0977854163");
-        invoice.setSentDate(new Date());
-        invoice.setInvoiceDate(new Date());
+        request.setSymptom("blue screen windows");
+        request.setBrand(brand);
+        request.setType(computerType);
+        request.setEmail("customer1@gmail.com");
+        request.setPhone("0977854163");
+        request.setSentDate(new Date());
+        request.setRequestDate(new Date());
 
         Customer customer = new Customer();
         Gender gender = new Gender();
@@ -86,10 +86,10 @@ public class InvoiceJUnitTest {
         customer.setPassword("123456789");
         customer.setPhone("0977854163");
         entityManager.persist(customer);
-        invoice.setCustomer(customer);
+        request.setCustomer(customer);
 
         try {
-            entityManager.persist(invoice);
+            entityManager.persist(request);
             entityManager.flush();
         } catch (ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();

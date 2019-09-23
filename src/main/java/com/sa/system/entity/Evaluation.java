@@ -35,7 +35,7 @@ public class Evaluation {
     private String suggestion;
 
     @ManyToOne
-    private Invoice invoice;
+    private Request request;
 
     @ManyToOne
     private Satisfaction satisfaction;

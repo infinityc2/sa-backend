@@ -31,7 +31,7 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @SequenceGenerator(name = "invoice_seq", initialValue = 1)
-public class Invoice {
+public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invoice_seq")
@@ -49,12 +49,12 @@ public class Invoice {
     
     @Size(min = 10)
     private @NotNull String symptom;
-    private @NotNull Date invoiceDate;
+    private @NotNull Date requestDate;
     private @NotNull Date sentDate;
 
     @ManyToMany
-    @JoinTable(name = "tool_invoice",
-        joinColumns = @JoinColumn(name = "invoice_id", referencedColumnName = "id"),
+    @JoinTable(name = "tool_request",
+        joinColumns = @JoinColumn(name = "request_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "tool_id", referencedColumnName = "id"))
     @JsonBackReference
     private Collection<Tool> tool;

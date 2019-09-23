@@ -33,7 +33,7 @@ public class CancelRepair {
     private Date cancelDate;
 
     @OneToOne
-    private Invoice invoice;
+    private Request request;
 
     @ManyToOne
     private CancelDetail cancelDetail;

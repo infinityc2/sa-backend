@@ -38,7 +38,7 @@ public class Payment {
     private Customer customer;
 
     @ManyToOne
-    private Invoice invoice;
+    private Request request;
 
     @ManyToOne
     private Repairman repairman;

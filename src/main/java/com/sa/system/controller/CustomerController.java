@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/customer")
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"})
 public class CustomerController {
 
     @Autowired private CustomerRepository customerRepository;

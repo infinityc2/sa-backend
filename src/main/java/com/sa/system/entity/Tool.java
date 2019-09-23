@@ -40,5 +40,5 @@ public class Tool {
 
     @ManyToMany(mappedBy = "tool")
     @JsonBackReference
-    private Collection<Invoice> invoice;
+    private Collection<Request> request;
 }
