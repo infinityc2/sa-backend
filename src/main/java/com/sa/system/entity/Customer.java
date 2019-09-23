@@ -46,9 +46,11 @@ public class Customer {
     @ManyToOne
     private CustomerType customerType;
 
-    @OneToOne
-    private Address address;
+    private @NotNull String address;
 
     @ManyToOne
     private Gender gender;
+
+    @OneToOne
+    private Province province;
 }

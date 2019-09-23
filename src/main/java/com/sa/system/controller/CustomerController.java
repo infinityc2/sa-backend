@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import com.sa.system.entity.Address;
 import com.sa.system.entity.Customer;
 import com.sa.system.entity.CustomerType;
 import com.sa.system.entity.Gender;
-import com.sa.system.repository.AddressRepository;
+import com.sa.system.entity.Province;
 import com.sa.system.repository.CustomerRepository;
 import com.sa.system.repository.CustomerTypeRepository;
 import com.sa.system.repository.GenderRepository;
+import com.sa.system.repository.ProvinceRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +31,7 @@ public class CustomerController {
     @Autowired private CustomerRepository customerRepository;
     @Autowired private CustomerTypeRepository customerTypeRepository;
     @Autowired private GenderRepository genderRepository;
-    @Autowired private AddressRepository addressRepository;
+    @Autowired private ProvinceRepository provinceRepository;
 
     @PostMapping("/login")
     public Map<String, String> loginCustomer(@RequestBody Map<String, String> body) {
@@ -52,7 +52,9 @@ public class CustomerController {
         Customer newCustomer = new Customer();
         Optional<CustomerType> customerType = customerTypeRepository.findById(Long.valueOf(body.get("customerType").toString()));
         Optional<Gender> gender = genderRepository.findById(Long.valueOf(body.get("gender").toString()));
+        Optional<Province> province = provinceRepository.findById(Long.valueOf(body.get("province").toString()));
 
+        newCustomer.setProvince(province.get());
         newCustomer.setGender(gender.get());
         newCustomer.setCustomerType(customerType.get());
         newCustomer.setEmail(body.get("email").toString());
@@ -60,6 +62,7 @@ public class CustomerController {
         newCustomer.setLastName(body.get("lastName").toString());
         newCustomer.setPassword(body.get("password").toString());
         newCustomer.setPhone(body.get("phone").toString());
+        newCustomer.setAddress(body.get("address").toString());
         return customerRepository.save(newCustomer);
     }
     

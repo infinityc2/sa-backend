@@ -38,8 +38,8 @@ public class Repairman {
     private Gender gender;
 
     @ManyToOne
-    private ITTechnician itTechnician;
+    private Expertise expertise;
 
     @ManyToOne
-    private Position expertise;
+    private Position position;
 }

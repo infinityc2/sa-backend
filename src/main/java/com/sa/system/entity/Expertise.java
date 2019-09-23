@@ -16,18 +16,14 @@ import lombok.Setter;
 @Entity
 @Table
 @Data
-@Getter @Setter
+@Setter @Getter
 @NoArgsConstructor
-@SequenceGenerator(name = "address_seq", initialValue = 1)
-public class Address {
+@SequenceGenerator(name = "expertise_seq", initialValue = 1)
+public class Expertise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expertise_seq")
     private Long id;
 
-    @NotNull
-    private String province;
-
-    @NotNull
-    private String detail;
+    private @NotNull String expertise;
 }

@@ -17,7 +17,7 @@ public class PositionDataloader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Stream.of("Network", "Hardware", "Program", "Print").forEach(skill -> {
+        Stream.of("Junior", "Senior", "Professional", "Specialist").forEach(skill -> {
             Position position = new Position();
             position.setPosition(skill);
             positionRepository.save(position);
