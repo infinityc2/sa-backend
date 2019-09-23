@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class PositionDataloader implements ApplicationRunner {
 
-    @Autowired private PositionRepository positionRepository;
+    @Autowired
+    private PositionRepository positionRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -22,8 +23,6 @@ public class PositionDataloader implements ApplicationRunner {
             position.setPosition(skill);
             positionRepository.save(position);
         });
-
     }
 
-    
 }

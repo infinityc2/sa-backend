@@ -26,5 +26,5 @@ public class Satisfaction {
     private Long id;
 
     @NotNull
-    private String level;
+    private String satisfactionLevel;
 }
