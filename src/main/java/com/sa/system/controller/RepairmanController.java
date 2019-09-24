@@ -31,7 +31,7 @@ public class RepairmanController {
     @Autowired private ExpertiseRepository expertiseRepository;
     @Autowired private PositionRepository positionRepository;
 
-    @GetMapping("/group")
+    @GetMapping("/member")
     public List<Repairman> getRepairman() {
         return repairmanRepository.findAll();
     }

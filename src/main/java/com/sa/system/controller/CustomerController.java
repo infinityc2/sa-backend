@@ -1,6 +1,7 @@
 package com.sa.system.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,6 +34,11 @@ public class CustomerController {
     @Autowired private GenderRepository genderRepository;
     @Autowired private ProvinceRepository provinceRepository;
 
+    @GetMapping("/member")
+    public List<Customer> findCustomerAll() {
+        return customerRepository.findAll();
+    }
+
     @PostMapping("/login")
     public Map<String, String> loginCustomer(@RequestBody Map<String, String> body) {
         Customer customer = customerRepository.findByEmail(body.get("email").toString());
@@ -42,6 +48,7 @@ public class CustomerController {
             map.put("message", isMatch ? "ยินดีต้อนรับ" : "รหัสผ่านไม่ถูกต้อง");
             map.put("id", isMatch ? customer.getId().toString() : null);
         } catch (Exception e) {
+            map.put("id", null);
             map.put("message", "email ไม่ถูกต้อง");
         }
         return map;

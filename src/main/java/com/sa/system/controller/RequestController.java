@@ -43,9 +43,10 @@ public class RequestController {
     @Autowired private ToolRepository toolRepository;
     @Autowired private ComputerTypeRepository computerTypeRepository;
 
-    @GetMapping("/{email}")
-    public Collection<Request> findRequestByCustomer(@PathVariable String email) {
-        return requestRepository.findByCustomer(customerRepository.findByEmail(email));
+    @GetMapping("/customer/{id}")
+    public Collection<Request> findRequestByCustomer(@PathVariable Long id) {
+        Optional<Customer> customer = customerRepository.findById(id);
+        return requestRepository.findByCustomer(customer.get());
     }
 
     @GetMapping("/menu")

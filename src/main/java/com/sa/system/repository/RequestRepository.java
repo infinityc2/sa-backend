@@ -11,7 +11,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface RequestRepository extends JpaRepository<Request, Long> {
 
-	Collection<Request> findByCustomer(Customer findByEmail);
-
-    
+	Collection<Request> findByCustomer(Customer customer);
 }
