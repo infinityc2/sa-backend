@@ -1,5 +1,6 @@
 package com.sa.system.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,12 +31,12 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
     private Long id;
 
-    @Email
+    @Email @Column(unique = true)
     // @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")
     private @NotNull String email;
 
-    private @NotNull String firstName;
-    private @NotNull String lastName;
+    private @NotNull String firstname;
+    private @NotNull String lastname;
     
     @Size(min = 8)
     private @NotNull String password;
@@ -44,13 +45,16 @@ public class Customer {
     private @NotNull String phone;
 
     @ManyToOne
+    @NotNull
     private CustomerType customerType;
 
     private @NotNull String address;
 
     @ManyToOne
+    @NotNull
     private Gender gender;
 
     @OneToOne
+    @NotNull
     private Province province;
 }

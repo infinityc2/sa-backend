@@ -65,8 +65,8 @@ public class CustomerController {
         newCustomer.setGender(gender.get());
         newCustomer.setCustomerType(customerType.get());
         newCustomer.setEmail(body.get("email").toString());
-        newCustomer.setFirstName(body.get("firstName").toString());
-        newCustomer.setLastName(body.get("lastName").toString());
+        newCustomer.setFirstname(body.get("firstname").toString());
+        newCustomer.setLastname(body.get("lastname").toString());
         newCustomer.setPassword(body.get("password").toString());
         newCustomer.setPhone(body.get("phone").toString());
         newCustomer.setAddress(body.get("address").toString());

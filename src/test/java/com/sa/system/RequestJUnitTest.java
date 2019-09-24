@@ -81,8 +81,8 @@ public class RequestJUnitTest {
         customer.setGender(gender);
         customer.setCustomerType(customerType);
         customer.setEmail("customer1@gmail.com");
-        customer.setFirstName("John");
-        customer.setLastName("Doe");
+        customer.setFirstname("John");
+        customer.setLastname("Doe");
         customer.setPassword("123456789");
         customer.setPhone("0977854163");
         entityManager.persist(customer);

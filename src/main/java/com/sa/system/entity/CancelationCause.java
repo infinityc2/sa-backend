@@ -13,18 +13,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table
 @Entity
+@Table
 @Data
-@Getter @Setter
+@Setter @Getter
 @NoArgsConstructor
-@SequenceGenerator(name = "receive_product_seq", initialValue = 1)
-public class ReceiveProduct {
+@SequenceGenerator(name = "cancelation_cause_seq", initialValue = 1)
+public class CancelationCause {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "receive_product_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cancelation_cause_seq")
     private Long id;
 
-    @NotNull
-    private String receiveMethod;
+    private @NotNull String cause;
 }

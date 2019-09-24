@@ -36,10 +36,10 @@ public class CancelRepair {
     private Request request;
 
     @ManyToOne
-    private CancelDetail cancelDetail;
+    private CancelationCause cancelationCause;
 
     @ManyToOne
-    private ReceiveProduct receiveProduct;
+    private ProductReceiveType productReceiveType;
 
     @ManyToOne
     private Customer customer;

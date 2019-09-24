@@ -29,7 +29,7 @@ public class Payment {
     @NotNull
     private Date payDate;
 
-    private Long fee;
+    private Integer fee;
 
     @ManyToOne
     private PaymentType paymentType;
