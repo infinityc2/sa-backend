@@ -69,11 +69,11 @@ public class RequestController {
     public Request addRequest(@PathVariable List<Long> items, @RequestBody Map<String, String> body) {
         Request newRequest = new Request();
         Optional<Brand> brand = brandRepository.findById(Long.valueOf(body.get("brand").toString()));
-        Optional<ComputerType> computerType = computerTypeRepository.findById(Long.valueOf(body.get("type").toString()));
+        Optional<ComputerType> computerType = computerTypeRepository.findById(Long.valueOf(body.get("computerType").toString()));
 
         newRequest.setEmail(body.get("email").toString());
         newRequest.setBrand(brand.get());
-        newRequest.setType(computerType.get());
+        newRequest.setComputerType(computerType.get());
         newRequest.setPhone(body.get("phone").toString());
         newRequest.setRequestDate(new Date());
         newRequest.setSymptom(body.get("symptom").toString());
@@ -119,11 +119,11 @@ public class RequestController {
     public Request addRequest(@RequestBody Map<String, String> body) {
         Request newRequest = new Request();
         Optional<Brand> brand = brandRepository.findById(Long.valueOf(body.get("brand").toString()));
-        Optional<ComputerType> computerType = computerTypeRepository.findById(Long.valueOf(body.get("type").toString()));
+        Optional<ComputerType> computerType = computerTypeRepository.findById(Long.valueOf(body.get("computerType").toString()));
 
         newRequest.setEmail(body.get("email").toString());
         newRequest.setBrand(brand.get());
-        newRequest.setType(computerType.get());
+        newRequest.setComputerType(computerType.get());
         newRequest.setPhone(body.get("phone").toString());
         newRequest.setRequestDate(new Date());
         newRequest.setSymptom(body.get("symptom").toString());

@@ -41,7 +41,7 @@ public class Request {
     private @NotNull Brand brand;
 
     @ManyToOne
-    private @NotNull ComputerType type;
+    private @NotNull ComputerType computerType;
 
     @ManyToOne
     private @NotNull Customer customer;
