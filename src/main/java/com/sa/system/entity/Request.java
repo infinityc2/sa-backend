@@ -44,13 +44,14 @@ public class Request {
     private @NotNull ComputerType type;
 
     @ManyToOne
-    private Customer customer;
+    private @NotNull Customer customer;
 
     
     @Size(min = 10)
     private @NotNull String symptom;
     private @NotNull Date requestDate;
     private @NotNull Date sentDate;
+    private @NotNull String requestCode;
 
     @ManyToMany
     @JoinTable(name = "tool_request",

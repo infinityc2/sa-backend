@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 import com.sa.system.entity.Brand;
 import com.sa.system.entity.ComputerType;
@@ -58,6 +59,11 @@ public class RequestController {
     public Optional<Request> findRequestById(@PathVariable Long id) {
         return requestRepository.findById(id);
     }
+
+    public String generateCode() {
+        String code = UUID.randomUUID().toString();
+        return code;
+    }
     
     @PostMapping("/repair/{items}")
     public Request addRequest(@PathVariable List<Long> items, @RequestBody Map<String, String> body) {
@@ -71,6 +77,7 @@ public class RequestController {
         newRequest.setPhone(body.get("phone").toString());
         newRequest.setRequestDate(new Date());
         newRequest.setSymptom(body.get("symptom").toString());
+        newRequest.setRequestCode(generateCode());
 
         try {
             Set<Tool> tools = new HashSet<Tool>();
@@ -98,7 +105,7 @@ public class RequestController {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date parseDate = dateFormat.parse(body.get("sentDate").toString());
             Timestamp date = new java.sql.Timestamp(parseDate.getTime());
-            newRequest.setSentDate(date);
+            newRequest.setSentDate(parseDate);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
@@ -120,6 +127,7 @@ public class RequestController {
         newRequest.setPhone(body.get("phone").toString());
         newRequest.setRequestDate(new Date());
         newRequest.setSymptom(body.get("symptom").toString());
+        newRequest.setRequestCode(generateCode());
 
         try {
             Optional<Customer> customer = customerRepository.findById(Long.valueOf(body.get("customer").toString()));
@@ -134,7 +142,7 @@ public class RequestController {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date parseDate = dateFormat.parse(body.get("sentDate").toString());
             Timestamp date = new java.sql.Timestamp(parseDate.getTime());
-            newRequest.setSentDate(date);
+            newRequest.setSentDate(parseDate);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
