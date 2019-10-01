@@ -35,9 +35,6 @@ public class Payment {
     private PaymentType paymentType;
 
     @ManyToOne
-    private Customer customer;
-
-    @ManyToOne
     private Request request;
 
     @ManyToOne
