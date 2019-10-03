@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -105,7 +106,6 @@ public class RequestController {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date parseDate = dateFormat.parse(body.get("sentDate").toString());
-            Timestamp date = new java.sql.Timestamp(parseDate.getTime());
             newRequest.setSentDate(parseDate);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
@@ -142,7 +142,6 @@ public class RequestController {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date parseDate = dateFormat.parse(body.get("sentDate").toString());
-            Timestamp date = new java.sql.Timestamp(parseDate.getTime());
             newRequest.setSentDate(parseDate);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
