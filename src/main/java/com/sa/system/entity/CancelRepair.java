@@ -40,8 +40,5 @@ public class CancelRepair {
 
     @ManyToOne
     private ProductReceiveType productReceiveType;
-
-    @ManyToOne
-    private Customer customer;
     
 }
