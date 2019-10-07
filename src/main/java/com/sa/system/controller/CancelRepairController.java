@@ -39,7 +39,7 @@ public class CancelRepairController {
         return cancelRepairRepository.findById(id);
     }
 
-    @PostMapping("/cancel/")
+    @PostMapping("/cancel/{requestId}/{cancelationCauseId}/{productReceiveId}")
     public CancelRepair addCancelRepair(@PathVariable Long requestId, @PathVariable Long cancelationCauseId, @PathVariable Long productReceiveId) {
         CancelRepair newCancelRepair = new CancelRepair();
         Optional<Request> request = requestRepository.findById(requestId);
