@@ -152,8 +152,4 @@ public class RequestController {
         return requestRepository.save(newRequest);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void removeRequest(@PathVariable Long id) {
-        requestRepository.deleteById(id);
-    }
 }
